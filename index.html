@@ -1,0 +1,87 @@
+<!doctype html><html lang="zh-CN"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>杏邻诊所 · MVP 设计</title>
+<style>
+*{box-sizing:border-box}body{margin:0;background:#e4eeea;color:#18322d;font-size:15px;font-family:-apple-system,"PingFang SC",sans-serif}button,input,textarea,select{font:inherit}button{cursor:pointer}button:focus-visible{outline:3px solid #64b5a1;outline-offset:3px}.shell{display:grid;grid-template-columns:290px 390px;justify-content:center;gap:55px;padding:35px 16px}.side{padding-top:32px}.side h1{font-size:35px;letter-spacing:-1.5px;margin:12px 0}.side p{color:#48665d;line-height:1.8}.side button{display:block;width:100%;text-align:left;background:#f7fbf9;border:0;padding:13px;border-radius:11px;margin:7px 0;color:#234940}.side button.on{background:#145e4c;color:#fff}.phone{background:#f4f7f5;width:390px;min-height:760px;border-radius:24px;overflow:hidden;position:relative;display:flex;flex-direction:column;box-shadow:0 20px 70px #22463922}.system,.top{background:#fff;display:flex;align-items:center;justify-content:space-between;padding:0 19px}.system{height:35px;font:600 13px system-ui}.top{height:49px;border-bottom:1px solid #e7eeea;font-weight:650}.caps{border:1px solid #dae6e0;border-radius:20px;padding:3px 9px;letter-spacing:3px}.back{border:0;background:none;color:#223e36;padding:0;min-width:24px;font-size:22px}main{flex:1;padding:21px 17px 15px}h1,h2,p{margin:0}h1{font-size:28px;letter-spacing:-.8px}h2{font-size:17px;margin-bottom:8px}p{line-height:1.5}.muted,small{color:#506961}.intro{margin:0 2px 18px}.intro small{display:block;margin-bottom:6px}.intro p{margin-top:5px;font-size:13px}.card{border:1px solid #e1eae5;background:#fff;border-radius:17px;padding:14px 15px;margin-bottom:11px}.card p{font-size:14px}.row{display:flex;justify-content:space-between;align-items:center;gap:10px}.hero{background:#125b49;color:white;border:0;padding:17px}.hero h2{font-size:23px;margin:9px 0 2px}.hero p{color:#e1f4eb}.pill{display:inline-block;padding:4px 8px;border-radius:20px;font-size:11px;font-weight:650;background:#e3f4ec;color:#175c49;white-space:nowrap}.hero .pill{background:#ffffff27;color:#fff}.amber{background:#fff0cf;color:#77490a}.violet{background:#eae6fd;color:#503b87}.primary,.secondary{border:0;background:#13634f;color:#fff;padding:11px 14px;border-radius:10px;font-weight:650}.primary{width:100%;margin-top:10px}.hero .primary{background:#f1fbf6;color:#114c3e}.secondary{background:#e7f2ed;color:#175b49;white-space:nowrap;font-size:13px}.plain{background:none;border:0;color:#155d4b;padding:6px;font-weight:650;white-space:nowrap}.foot{background:white;border-top:1px solid #e0eae5;padding:8px 14px 11px}.tabs{display:flex;justify-content:space-around}.tabs button{background:none;border:0;color:#547169;font-size:12px;padding:0 7px}.tabs button.on{color:#125b49;font-weight:750}.icon{display:block;font-size:19px;margin-bottom:3px}.homebar{margin:8px auto 0;border-radius:5px;width:100px;height:4px;background:#1b3028}.services{display:grid;grid-template-columns:repeat(3,1fr);gap:7px}.services button{border:0;border-radius:9px;padding:7px 1px;background:#eef6f1;color:#194e40;font-size:12px}details summary{cursor:pointer;color:#175b49;font-size:14px}.section{margin:13px 2px 8px}.metrics{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin:0 0 13px}.metrics div{background:white;border-radius:12px;padding:11px 8px;border:1px solid #e1eae5}.metrics b{display:block;font-size:23px}.metrics small{font-size:11px}.item+.item{border-top:1px solid #e5eeea;margin-top:10px;padding-top:10px}.item p{font-size:12px;margin-top:3px}.avatar{border-radius:12px;background:#dcefe7;color:#125b49;width:35px;height:35px;display:grid;place-items:center;font-weight:700}.cluster{display:flex;gap:9px;align-items:center}.field,.form label{display:block;margin-bottom:12px;font-weight:650}.form label:last-child{margin-bottom:0}input,textarea,select{color:#234239;display:block;padding:9px;margin-top:5px;background:#f8faf9;border:1px solid #d9e6df;border-radius:9px;width:100%}textarea{resize:vertical;min-height:62px}.twocol{display:grid;grid-template-columns:1fr 1fr;gap:9px}.ai{background:#f0edfb;border-color:#e3dcfa}.ai .plain{color:#553f88}.ai p{margin:6px 0}.note{font-size:12px;color:#546b63;margin-top:7px}.shot .shell{display:block;padding:0}.shot .side{display:none}.shot body{background:#f4f7f5}.shot .phone{border-radius:0;box-shadow:none;height:844px}.shot main{overflow:hidden}@media(max-width:760px){.shell{display:block;padding:8px}.side{padding:2px 0 10px;max-width:390px;margin:auto}.side h1{font-size:23px}.side p{display:none}.side .nav{display:grid;grid-template-columns:1fr 1fr;gap:3px}.side button{margin:0;padding:7px;font-size:12px}.phone{width:min(390px,100%);margin:auto}}
+.choices{display:grid;gap:7px}.choices button{text-align:left}.shot .phone{margin:0}</style><div class="shell"><aside class="side"><small>微信小程序 · MVP 评审</small><h1>杏邻诊所</h1><p>一个诊所、一次诊后随访。用模拟数据体验从创建任务到医生反馈的流程。</p><div class="nav" id="nav"></div></aside><section class="phone"><div class="system"><span>9:41</span><span>▮▮▮ &nbsp; ▰</span></div><header class="top"><button class="back" id="back" aria-label="返回">‹</button><span id="title"></span><span class="caps" aria-hidden="true">··· ◉</span></header><main id="screen"></main><footer class="foot" id="foot"></footer></section></div>
+<script>
+const labels={ 'patient-home':'患者首页','patient-form':'填写随访','doctor-home':'医生工作台','doctor-review':'随访详情','doctor-plan':'新建随访','patient-feedback':'医生反馈','clinic':'诊所助手'};
+const state={agentStep:0,clinicTopic:"",due:"2026-11-26T20:00",submitted:false,sent:false,reply:'已收到本次记录。请补充本次血压的测量时间，方便我核对。',appointment:false,reported:null};
+const button=(label,to,style='plain')=>`<button type="button" class="${style}" data-to="${to}">${label}</button>`;
+const pill=(label,style='')=>`<span class="pill ${style}">${label}</span>`;
+const intro=(role,title,sub)=>`<div class="intro"><small>${role} · 演示数据</small><h1>${title}</h1><p class="muted">${sub}</p></div>`;
+const card=(content,extra='')=>`<article class="card ${extra}">${content}</article>`;
+const person=(icon,name,detail,action)=>`<div class="item row"><div class="cluster"><span class="avatar">${icon}</span><div><b>${name}</b><p class="muted">${detail}</p></div></div>${action}</div>`;
+const escapeText=value=>String(value).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'})[c]);
+const deadline=()=>state.due.slice(5,7)+'月'+state.due.slice(8,10)+'日 '+state.due.slice(11,16);
+const questionFor=r=>r.high&&r.low?'这次血压是什么时候测的？':'是否有本次血压测量记录？';
+const draftFor=r=>'已收到本次随访记录。想跟您确认一下：'+questionFor(r);
+const action=(label,id,style='secondary')=>`<button type="button" class="${style}" data-action="${id}">${label}</button>`;
+const sample={high:'128',low:'82',medicine:'按计划',note:'暂无不适'};
+const pages={
+'patient-home':()=>intro('患者端','王女士，您好','杏邻诊所')+card(pill(state.sent?'已回复':state.submitted?'待医生回复':'待完成')+'<h2>诊后随访</h2><p>'+(state.sent?'李医生已发送反馈':state.submitted?'记录已提交':deadline()+' 前完成')+'</p>'+button(state.sent?'查看医生回复':state.submitted?'查看进度':'填写随访',state.sent||state.submitted?'patient-feedback':'patient-form','primary'),'hero')+card('<div class="services">'+button('我的记录','records')+button('复诊预约','appointment')+button('诊所助手','clinic')+'</div>'),
+'patient-form':()=>intro('患者端','填写随访','李医生发起 · '+deadline()+' 前完成')+`<form id="followup" class="form">`+card('<h2>本次血压</h2><p class="muted">单位为 mmHg。没有测量时可留空。</p><div class="twocol"><label>高压<input name="high" type="number" inputmode="numeric" placeholder="填写数值"></label><label>低压<input name="low" type="number" inputmode="numeric" placeholder="填写数值"></label></div>')+card('<label>用药情况<select name="medicine" required><option value="">请选择</option><option>按计划</option><option>有漏服</option><option>本次未用药</option></select></label><label>近期情况<textarea name="note" placeholder="例如暂无不适，或描述近期变化"></textarea></label>')+'<button class="primary">提交给医生</button><p class="note">提交后可在随访中查看处理进度。</p></form>',
+'doctor-home':()=>intro('医生端','随访待办','杏邻诊所 · 李医生')+card('<div class="row"><h2>我的患者</h2>'+button('＋ 新建随访','doctor-plan','secondary')+'</div>'+person('王','王女士',state.sent?'已回复':'诊后随访 · 待处理',button(state.sent?'查看':'去处理','doctor-review'))+person('陈','陈先生','诊后随访 · 待提交',pill('待填写','amber'))+person('林','林女士','诊后随访 · 昨日提交',pill('待查阅')))+card('<div class="row"><h2>复诊申请</h2>'+pill(state.appointment?'2 条待确认':'1 条待确认','amber')+'</div>'),
+'doctor-review':()=>{
+ const r=state.reported||sample;
+ const hasPressure=r.high&&r.low;
+ const source=card('<div class="row"><h2>患者记录</h2>'+button('查看原始记录','records')+'</div><p>'+ (hasPressure?'血压 '+escapeText(r.high)+' / '+escapeText(r.low)+' mmHg':'血压未填完整')+' · 用药'+escapeText(r.medicine)+'</p><p class="muted">近期情况　'+escapeText(r.note||'未填写')+'</p>');
+ const agent='<div class="row"><h2>✦ 医生智能体</h2>'+pill(state.agentStep?'AI 草稿':'仅当前随访','violet')+'</div>';
+ const content=state.sent?card('<h2>已发送的医生反馈</h2><p>'+escapeText(state.reply)+'</p>'):state.agentStep?
+ '<form id="review">'+card(agent+'<p>待核对　'+(hasPressure?'测量时间待确认':'血压数值缺失')+'</p><label class="note" for="reply">追问草稿 · 可编辑</label><textarea id="reply" name="reply" required>'+escapeText(state.reply)+'</textarea>','ai')+'<button class="primary">确认并发送</button></form>':
+ card(agent+'<p>根据患者记录，标出缺项并起草追问。</p>'+action('生成随访草稿','generate','primary'),'ai')+'<details class="card"><summary>手动回复</summary><form id="review"><textarea name="reply" aria-label="给患者的反馈" required></textarea><button class="primary">确认并发送</button></form></details>';
+ return intro('医生端','王女士 · 诊后随访',state.sent?'已回复':'待处理')+source+content;
+},
+'doctor-plan':()=>intro('医生端','新建随访','从诊所模板创建一项患者待办。')+`<form id="plan" class="form">`+card('<label>患者<select><option>王女士</option></select></label><label>随访模板<select><option>诊后随访</option></select></label><label>截止时间<input name="due" type="datetime-local" value="2026-11-26T20:00" required></label>')+card('<h2>患者填写内容</h2><p>本次血压、用药情况、近期情况</p>')+'<button class="primary">发布随访任务</button></form>',
+'patient-feedback':()=>intro('患者端','医生反馈','诊后随访 · 杏邻诊所')+card('<div class="row"><h2>本次随访</h2>'+pill(state.sent?'已回复':'待医生回复')+'</div><p class="muted">'+(state.sent?'李医生已确认并发送反馈。':'提交记录后，可在这里查看李医生的回复。')+'</p>')+(state.sent?card('<h2>李医生</h2><p>'+escapeText(state.reply)+'</p>'):'')+button('返回首页','patient-home','primary'),
+'records':()=>{const r=state.reported||sample;return intro('随访','原始记录','诊后随访 · 演示记录')+card('<h2>患者自报</h2><p>高压 '+escapeText(r.high||'未填')+' · 低压 '+escapeText(r.low||'未填')+'</p><p>用药情况　'+escapeText(r.medicine)+'</p><p>近期情况　'+escapeText(r.note||'未填写')+'</p>')},
+'appointment':()=>intro('患者端','复诊预约','提交意向后，由诊所确认时间。')+'<form id="appointment" class="form">'+card('<label>期望日期<input type="date" value="2026-11-30" required></label><label>备注<textarea placeholder="选填"></textarea></label>')+'<button class="primary">提交预约申请</button></form>',
+'clinic':()=>{
+ const responses={
+ booking:['如何申请复诊？','在首页打开复诊预约，提交期望日期。诊所确认前，首页会显示待确认。','打开复诊预约','appointment'],
+ feedback:['在哪里看医生反馈？','打开消息，查看医生确认后发送的随访反馈。','查看反馈','patient-feedback'],
+ clinician:['我有病情或用药问题','请联系负责您的医护人员。您可通过复诊申请联系诊所，并在备注中说明需要医护回复。','联系诊所','appointment']
+ };
+ const answer=responses[state.clinicTopic];
+ return intro('患者端 · AI','诊所助手','我可以帮您找到复诊预约和随访反馈。')+card('<h2>您想了解什么？</h2><div class="choices">'+action('如何申请复诊？','booking')+action('在哪里看医生反馈？','feedback')+action('我有病情或用药问题','clinician')+'</div>')+(answer?card('<h2>'+answer[0]+'</h2><p>'+answer[1]+'</p>'+button(answer[2],answer[3],'primary'),'ai'):'')+card('<p>信息来源为诊所服务说明。个人病情和用药问题由医护处理。</p>');
+}
+
+};
+let current='patient-home',history=[];
+function show(page,remember=true){
+ if(!pages[page])return;
+ if(remember&&page!==current)history.push(current);
+ current=page;
+ const d=page.startsWith('doctor');
+ document.querySelector('#title').textContent=page==='patient-home'?'杏邻诊所':labels[page]||({records:'原始记录',appointment:'复诊预约',clinic:'诊所助手'})[page];
+ document.querySelector('#screen').innerHTML=pages[page]();
+ document.querySelector('#nav').innerHTML=Object.entries(labels).map(([id,label])=>button(label,id,id===page?'on':'')).join('');
+ const tabs=d?[['▦','工作台','doctor-home'],['＋','新建随访','doctor-plan']]:[['⌂','首页','patient-home'],['▤','随访','patient-form'],['◇','消息','patient-feedback']];
+ document.querySelector('#foot').innerHTML='<div class="tabs">'+tabs.map(([icon,label,id])=>button('<span class="icon">'+icon+'</span>'+label,id,page===id?'on':'')).join('')+'</div><div class="homebar"></div>';
+}
+document.addEventListener('click',e=>{
+ const link=e.target.closest('[data-to]');
+ if(link){show(link.dataset.to);return;}
+ const control=e.target.closest('[data-action]');
+ if(!control)return;
+ switch(control.dataset.action){
+  case 'generate':state.reply=draftFor(state.reported||sample);state.agentStep=1;show('doctor-review');document.querySelector('#reply').focus();break;
+  default:state.clinicTopic=control.dataset.action;show('clinic');
+ }
+});
+document.querySelector('#back').onclick=()=>show(history.pop()||'patient-home',false);
+document.addEventListener('submit',e=>{
+ e.preventDefault();
+ const data=Object.fromEntries(new FormData(e.target));
+ switch(e.target.id){
+ case 'plan':state.agentStep=0;state.due=data.due;state.submitted=false;state.sent=false;state.reported=null;show('patient-home');break;
+ case 'followup':state.agentStep=0;state.reported=data;state.submitted=true;state.sent=false;show('patient-feedback');break;
+ case 'review':state.reply=data.reply;state.sent=true;show('patient-feedback');break;
+ case 'appointment':state.appointment=true;show('patient-home');break;
+ }
+});
+const params=new URLSearchParams(location.search);
+if(params.has('shot'))document.documentElement.classList.add('shot');
+if(params.get('page')==='patient-feedback')state.sent=true;
+if(params.get('page')==='doctor-review'&&params.has('draft'))state.agentStep=1;
+if(params.get('page')==='clinic'&&params.has('answer'))state.clinicTopic='booking';
+show(params.get('page')==='doctor-agent'?'doctor-review':params.get('page')||'patient-home',false);
+</script></html>
